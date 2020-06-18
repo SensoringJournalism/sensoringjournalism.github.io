@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Sensors for Journalism</title>
+  <meta name="description" content="An online resource for teaching Circuit Python and sensors for journalism." />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Sensors for Journalism" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="An online resource for teaching Circuit Python and sensors for journalism." />
+  <meta name="github-repo" content="mattwaite/sensorjournalism" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Sensors for Journalism" />
+  
+  <meta name="twitter:description" content="An online resource for teaching Circuit Python and sensors for journalism." />
+  
+
+<meta name="author" content="Matt Waite" />
+
+
+<meta name="date" content="2020-06-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="setup.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Sensors for Journalism</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#what-to-buy"><i class="fa fa-check"></i><b>0.1</b> What to buy</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#why-circuit-python"><i class="fa fa-check"></i><b>0.2</b> Why circuit python?</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="setup.html"><a href="setup.html"><i class="fa fa-check"></i><b>1</b> Setup</a><ul>
+<li class="chapter" data-level="1.1" data-path="setup.html"><a href="setup.html#first-things-first"><i class="fa fa-check"></i><b>1.1</b> First things first</a></li>
+<li class="chapter" data-level="1.2" data-path="setup.html"><a href="setup.html#installing-circuit-python"><i class="fa fa-check"></i><b>1.2</b> Installing Circuit Python</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="python-basics.html"><a href="python-basics.html"><i class="fa fa-check"></i><b>2</b> Python basics</a><ul>
+<li class="chapter" data-level="2.1" data-path="python-basics.html"><a href="python-basics.html#variables"><i class="fa fa-check"></i><b>2.1</b> Variables</a></li>
+<li class="chapter" data-level="2.2" data-path="python-basics.html"><a href="python-basics.html#functions"><i class="fa fa-check"></i><b>2.2</b> Functions</a></li>
+<li class="chapter" data-level="2.3" data-path="python-basics.html"><a href="python-basics.html#loops"><i class="fa fa-check"></i><b>2.3</b> Loops</a></li>
+<li class="chapter" data-level="2.4" data-path="python-basics.html"><a href="python-basics.html#conditionals"><i class="fa fa-check"></i><b>2.4</b> Conditionals</a></li>
+<li class="chapter" data-level="2.5" data-path="python-basics.html"><a href="python-basics.html#error-trapping"><i class="fa fa-check"></i><b>2.5</b> Error trapping</a></li>
+<li class="chapter" data-level="2.6" data-path="python-basics.html"><a href="python-basics.html#libraries"><i class="fa fa-check"></i><b>2.6</b> Libraries</a></li>
+<li class="chapter" data-level="2.7" data-path="python-basics.html"><a href="python-basics.html#putting-it-all-together"><i class="fa fa-check"></i><b>2.7</b> Putting it all together</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="circuit-python.html"><a href="circuit-python.html"><i class="fa fa-check"></i><b>3</b> Circuit Python</a><ul>
+<li class="chapter" data-level="3.1" data-path="circuit-python.html"><a href="circuit-python.html#making-it-easier"><i class="fa fa-check"></i><b>3.1</b> Making it easier</a></li>
+<li class="chapter" data-level="3.2" data-path="circuit-python.html"><a href="circuit-python.html#more-fun-with-lights"><i class="fa fa-check"></i><b>3.2</b> More fun with lights</a></li>
+<li class="chapter" data-level="3.3" data-path="circuit-python.html"><a href="circuit-python.html#stretch-your-head"><i class="fa fa-check"></i><b>3.3</b> Stretch your head</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="light-sensing-and-what-numbers-mean.html"><a href="light-sensing-and-what-numbers-mean.html"><i class="fa fa-check"></i><b>4</b> Light sensing and what numbers mean</a><ul>
+<li class="chapter" data-level="4.1" data-path="light-sensing-and-what-numbers-mean.html"><a href="light-sensing-and-what-numbers-mean.html#not-to-feed-your-love-of-numbers-but"><i class="fa fa-check"></i><b>4.1</b> Not to feed your love of numbers, but …</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="temperature-and-accuracy.html"><a href="temperature-and-accuracy.html"><i class="fa fa-check"></i><b>5</b> Temperature and accuracy</a><ul>
+<li class="chapter" data-level="5.1" data-path="temperature-and-accuracy.html"><a href="temperature-and-accuracy.html#turning-down-the-noise"><i class="fa fa-check"></i><b>5.1</b> Turning down the noise</a></li>
+<li class="chapter" data-level="5.2" data-path="temperature-and-accuracy.html"><a href="temperature-and-accuracy.html#low-cost-validation-and-calibration"><i class="fa fa-check"></i><b>5.2</b> Low cost validation and calibration</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sound.html"><a href="sound.html"><i class="fa fa-check"></i><b>6</b> Sound</a></li>
+<li class="chapter" data-level="7" data-path="counting-with-buttons.html"><a href="counting-with-buttons.html"><i class="fa fa-check"></i><b>7</b> Counting with buttons</a></li>
+<li class="chapter" data-level="8" data-path="touch.html"><a href="touch.html"><i class="fa fa-check"></i><b>8</b> Touch</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Sensors for Journalism</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Sensors for Journalism</h1>
+<p class="author"><em>Matt Waite</em></p>
+<p class="date"><em>2020-06-18</em></p>
+</div>
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<p>Most of the data journalism done throughout the world uses data collected by the government. The problem with that is twofold: That means data journalists are reliant upon the government to do their journalism, and what happens when the government doesn’t collect the data.</p>
+<p>There are ways for journalists to create their own data – surveys, keying in data from documents or, for well funded organizations, hiring workers to collect it. Another way, which is lightly explored but potentially powerful, is using off-the-shelf sensors to collect that data.</p>
+<p>Some major milestone projects for sensors in journalism:</p>
+<ul>
+<li><a href="https://project.wnyc.org/cicadas/">Cicada Tracker</a>: A WNYC project that made ground temperature sensors and a means for people to report that temperature to track the emergence of 17-year cicadas. Hundreds of volunteers built sensors and reported data to the project in 2013.</li>
+<li><a href="https://inewsource.org/whats-in-the-air/">What’s in the Air?</a>: The School of Journalism and Media Studies at San Diego State University used air quality sensors to report on air pollution in their city in 2014-2015.</li>
+<li><a href="https://cnsmaryland.org/interactives/summer-2019/code-red/behind-scenes.html">Code Red</a>: The University of Maryland’s Philip Merrill College of Journalism partnered with NPR to report on inequality in climate change, specifically measuring differences in temperatures inside people’s houses. They built temperature and humidity sensors to show what it’s like to live in Baltimore’s rowhouses during a hot summer.</li>
+</ul>
+<p>What all three projects combine is some simple electronics, inexpensive sensors, basic programming and a giant bucket of creativity. The electronics and the programming are within reach of anyone willing to take the time to learn.</p>
+<p>The creativity is the hard part.</p>
+<p>What follows is an introduction to the electronics and programming parts of that equation. The creativity part is entirely up to you. The more you can think about how to apply these ideas, the better chance you have of finding that creative spark.</p>
+<div id="what-to-buy" class="section level2">
+<h2><span class="header-section-number">0.1</span> What to buy</h2>
+<p>The truth is this is an impossible question to ask because of several factors.
+1. You will have your own ideas of what you’re going to want to do, and that will drive your decisions.
+2. The technology available changes constantly and at a breathtaking pace.
+3. The programming languages that glue this all together also change, albeit less quickly.</p>
+<p>So what follows is an attempt to suggest things that could cover a wide variety of applications, but have been specifically chosen for this book and the project described in later chapters.</p>
+<p><strong>If you are planning an introductory classroom based course:</strong> The first half of this book uses the <a href="https://www.adafruit.com/product/3333">Circuit Playground Express</a>. It’s an excellent, all-in-one beginner board that has a ton of features on it: lights, sensors, and can be programmed multiple ways. In a single board, you can program it with a visual, web-based interface from Microsoft called MakeCode that’s largely aimed at kids and you can program it with Circuit Python. This is great for students who have no experience with code: You can use MakeCode to do drag-and-drop programming to show what you can do and then switch to code to make the transition from the real to the abstract a smoother ride. There is a <a href="https://www.adafruit.com/product/3399">Circuit Playground Express Educator’s Pack</a> that gets you 15 boards, 15 USB cables and some fun extras for, at the time of this writing, $350.</p>
+<p><strong>If you are planning a project</strong>: For project work, you are going to want more flexibility in a smaller form factor. For this book, we’re going to use the Adafruit Feather series, specifically the <a href="https://www.adafruit.com/product/4516">Adafruit Feather Sense</a>, which packs a sensor array similar to the Circuit Playground Express, and we’re going to add the <a href="https://www.adafruit.com/product/2922">Adalogger FeatherWing</a>, an add on to give us a real time clock and an microSD card reader for data logging. For that we get sensors, clock, data logging and external power management for $38 a board. Could you do this cheaper by buying separate sensors and building this yourself? Without question. But it would be difficult and time consuming for beginners. Time is money.</p>
+</div>
+<div id="why-circuit-python" class="section level2">
+<h2><span class="header-section-number">0.2</span> Why circuit python?</h2>
+<p>This is largely personal opinion, but there’s a solid argument here.</p>
+<ol style="list-style-type: decimal">
+<li>Arduino has been the most visible small electronics platform for years and years. The one knock on it? It’s based in C, which is an especially difficult language for beginners to learn.</li>
+<li>Python is one of, if not the fastest growing programming language in the world right now. There’s reasons beyond this project for students to learn Python.</li>
+<li>Python is one of the more beginner friendly languages to learn. The syntax is largely straightforward and the fiddly parts are manageable with practice.</li>
+<li>It is much easier to see what your code is doing in Python versus the old Arduino code.</li>
+</ol>
+<p>The downsides to using Circuit Python, in the interest of fairness:</p>
+<ul>
+<li>Micro Python, and the Circuit Python variant, are relatively new.</li>
+<li>The main consequences of that newness are that there’s years and years of code, message board and tutorial support for Arduino out there and there just isn’t that for Circuit Python … yet.</li>
+<li>There’s fewer options for boards that support Circuit/Micro Python.</li>
+</ul>
+<p>On balance, I believe the benefit of students learning some Python outweighs the downsides. Especially if this is the only chance they’ll have to learn a programming language. Connecting code to the physical world is a powerful way to learn it.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="setup.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["sensorjournalism.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

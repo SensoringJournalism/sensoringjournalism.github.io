@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Temperature and accuracy | Sensors for Journalism</title>
+  <meta name="description" content="An online resource for teaching Circuit Python and sensors for journalism." />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Temperature and accuracy | Sensors for Journalism" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="An online resource for teaching Circuit Python and sensors for journalism." />
+  <meta name="github-repo" content="mattwaite/sensorjournalism" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Temperature and accuracy | Sensors for Journalism" />
+  
+  <meta name="twitter:description" content="An online resource for teaching Circuit Python and sensors for journalism." />
+  
+
+<meta name="author" content="Matt Waite" />
+
+
+<meta name="date" content="2020-06-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="light-sensing-and-what-numbers-mean.html"/>
+<link rel="next" href="sound.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Sensors for Journalism</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#what-to-buy"><i class="fa fa-check"></i><b>0.1</b> What to buy</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#why-circuit-python"><i class="fa fa-check"></i><b>0.2</b> Why circuit python?</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="setup.html"><a href="setup.html"><i class="fa fa-check"></i><b>1</b> Setup</a><ul>
+<li class="chapter" data-level="1.1" data-path="setup.html"><a href="setup.html#first-things-first"><i class="fa fa-check"></i><b>1.1</b> First things first</a></li>
+<li class="chapter" data-level="1.2" data-path="setup.html"><a href="setup.html#installing-circuit-python"><i class="fa fa-check"></i><b>1.2</b> Installing Circuit Python</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="python-basics.html"><a href="python-basics.html"><i class="fa fa-check"></i><b>2</b> Python basics</a><ul>
+<li class="chapter" data-level="2.1" data-path="python-basics.html"><a href="python-basics.html#variables"><i class="fa fa-check"></i><b>2.1</b> Variables</a></li>
+<li class="chapter" data-level="2.2" data-path="python-basics.html"><a href="python-basics.html#functions"><i class="fa fa-check"></i><b>2.2</b> Functions</a></li>
+<li class="chapter" data-level="2.3" data-path="python-basics.html"><a href="python-basics.html#loops"><i class="fa fa-check"></i><b>2.3</b> Loops</a></li>
+<li class="chapter" data-level="2.4" data-path="python-basics.html"><a href="python-basics.html#conditionals"><i class="fa fa-check"></i><b>2.4</b> Conditionals</a></li>
+<li class="chapter" data-level="2.5" data-path="python-basics.html"><a href="python-basics.html#error-trapping"><i class="fa fa-check"></i><b>2.5</b> Error trapping</a></li>
+<li class="chapter" data-level="2.6" data-path="python-basics.html"><a href="python-basics.html#libraries"><i class="fa fa-check"></i><b>2.6</b> Libraries</a></li>
+<li class="chapter" data-level="2.7" data-path="python-basics.html"><a href="python-basics.html#putting-it-all-together"><i class="fa fa-check"></i><b>2.7</b> Putting it all together</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="circuit-python.html"><a href="circuit-python.html"><i class="fa fa-check"></i><b>3</b> Circuit Python</a><ul>
+<li class="chapter" data-level="3.1" data-path="circuit-python.html"><a href="circuit-python.html#making-it-easier"><i class="fa fa-check"></i><b>3.1</b> Making it easier</a></li>
+<li class="chapter" data-level="3.2" data-path="circuit-python.html"><a href="circuit-python.html#more-fun-with-lights"><i class="fa fa-check"></i><b>3.2</b> More fun with lights</a></li>
+<li class="chapter" data-level="3.3" data-path="circuit-python.html"><a href="circuit-python.html#stretch-your-head"><i class="fa fa-check"></i><b>3.3</b> Stretch your head</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="light-sensing-and-what-numbers-mean.html"><a href="light-sensing-and-what-numbers-mean.html"><i class="fa fa-check"></i><b>4</b> Light sensing and what numbers mean</a><ul>
+<li class="chapter" data-level="4.1" data-path="light-sensing-and-what-numbers-mean.html"><a href="light-sensing-and-what-numbers-mean.html#not-to-feed-your-love-of-numbers-but"><i class="fa fa-check"></i><b>4.1</b> Not to feed your love of numbers, but …</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="temperature-and-accuracy.html"><a href="temperature-and-accuracy.html"><i class="fa fa-check"></i><b>5</b> Temperature and accuracy</a><ul>
+<li class="chapter" data-level="5.1" data-path="temperature-and-accuracy.html"><a href="temperature-and-accuracy.html#turning-down-the-noise"><i class="fa fa-check"></i><b>5.1</b> Turning down the noise</a></li>
+<li class="chapter" data-level="5.2" data-path="temperature-and-accuracy.html"><a href="temperature-and-accuracy.html#low-cost-validation-and-calibration"><i class="fa fa-check"></i><b>5.2</b> Low cost validation and calibration</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sound.html"><a href="sound.html"><i class="fa fa-check"></i><b>6</b> Sound</a></li>
+<li class="chapter" data-level="7" data-path="counting-with-buttons.html"><a href="counting-with-buttons.html"><i class="fa fa-check"></i><b>7</b> Counting with buttons</a></li>
+<li class="chapter" data-level="8" data-path="touch.html"><a href="touch.html"><i class="fa fa-check"></i><b>8</b> Touch</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Sensors for Journalism</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="temperature-and-accuracy" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Temperature and accuracy</h1>
+<p>Another sensor on the board is the temperature sensor. Unlike the light sensor, the data it returns is very easy to understand: It’s the temperature in Celcius.</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb61-1"><a href="temperature-and-accuracy.html#cb61-1"></a><span class="im">import</span> time</span>
+<span id="cb61-2"><a href="temperature-and-accuracy.html#cb61-2"></a><span class="im">from</span> adafruit_circuitplayground <span class="im">import</span> cp</span>
+<span id="cb61-3"><a href="temperature-and-accuracy.html#cb61-3"></a> </span>
+<span id="cb61-4"><a href="temperature-and-accuracy.html#cb61-4"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb61-5"><a href="temperature-and-accuracy.html#cb61-5"></a>    <span class="bu">print</span>(cp.temperature)</span>
+<span id="cb61-6"><a href="temperature-and-accuracy.html#cb61-6"></a>    time.sleep(<span class="dv">1</span>)</span></code></pre></div>
+<p>If you save that to your board and look at the Serial output, you’ll see numbers probably around 24. That’s 24 degrees Celcius. You can add things to the print statement to help you out.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb62-1"><a href="temperature-and-accuracy.html#cb62-1"></a><span class="im">import</span> time</span>
+<span id="cb62-2"><a href="temperature-and-accuracy.html#cb62-2"></a><span class="im">from</span> adafruit_circuitplayground <span class="im">import</span> cp</span>
+<span id="cb62-3"><a href="temperature-and-accuracy.html#cb62-3"></a> </span>
+<span id="cb62-4"><a href="temperature-and-accuracy.html#cb62-4"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb62-5"><a href="temperature-and-accuracy.html#cb62-5"></a>    <span class="bu">print</span>(cp.temperature, <span class="st">&quot;C&quot;</span>)</span>
+<span id="cb62-6"><a href="temperature-and-accuracy.html#cb62-6"></a>    time.sleep(<span class="dv">1</span>)</span></code></pre></div>
+<p>Remember in Chapter 2 when we converted C to F? Let’s bring that back.</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb63-1"><a href="temperature-and-accuracy.html#cb63-1"></a><span class="im">import</span> time</span>
+<span id="cb63-2"><a href="temperature-and-accuracy.html#cb63-2"></a><span class="im">from</span> adafruit_circuitplayground <span class="im">import</span> cp</span>
+<span id="cb63-3"><a href="temperature-and-accuracy.html#cb63-3"></a></span>
+<span id="cb63-4"><a href="temperature-and-accuracy.html#cb63-4"></a><span class="kw">def</span> convert(temp):</span>
+<span id="cb63-5"><a href="temperature-and-accuracy.html#cb63-5"></a>    fahren <span class="op">=</span> (temp <span class="op">*</span> <span class="fl">1.8</span>) <span class="op">+</span> <span class="dv">32</span> </span>
+<span id="cb63-6"><a href="temperature-and-accuracy.html#cb63-6"></a>    <span class="bu">print</span>(fahren) </span>
+<span id="cb63-7"><a href="temperature-and-accuracy.html#cb63-7"></a></span>
+<span id="cb63-8"><a href="temperature-and-accuracy.html#cb63-8"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb63-9"><a href="temperature-and-accuracy.html#cb63-9"></a>    convert(cp.temperature)</span>
+<span id="cb63-10"><a href="temperature-and-accuracy.html#cb63-10"></a>    time.sleep(<span class="dv">1</span>)</span></code></pre></div>
+<p>Now that is telling me that my office is about 77.8 degrees Fahrenheit. Now I’m notoriously Dad Energy on this – air conditioning is expensive, so I don’t care if you’re warm – but my basement office is quite cool. It isn’t 77.8.</p>
+<p>So what is it?</p>
+<p>That raises questions about how accurate are your sensors. The truth is this is one place where you get what you pay for. Do you need extremely accurate temperature readings because any change will cost your business money? Then you spend whatever it takes to get the most accurate sensor. Are you making a journalism project where a little fuzziness is not a huge deal? Then the sensor isn’t going to cost as much.</p>
+<p>But can we make this better without spending more money? We can.</p>
+<div id="turning-down-the-noise" class="section level2">
+<h2><span class="header-section-number">5.1</span> Turning down the noise</h2>
+<p>When planning a sensor journalism project, there’s several questions you’re going to have to answer given your requirements and given your available equipment.</p>
+<p>Two critical questions will be:</p>
+<ol style="list-style-type: decimal">
+<li>How accurate does the measurement have to be? Is good enough good enough?</li>
+<li>How precise does the measurement need to be?</li>
+</ol>
+<p>For example, my readings are saying things like 78.6844. Do we really need four digits of precision? Can you tell the difference between 78.6844 and 78.6855? Do people talk about temperature with decimals?</p>
+<p>And notice that the sensor is sensitive enough that the temperature goes up and down with each reading, no matter how frequently you ask for it. We’ve got it set for every second. Do micro differences in temperature every second matter?</p>
+<p>There are some things we can do in code to deal with these questions.</p>
+<p>First, we can average a collection of temperature readings to smooth it out. To do this, we’re going to create an empty list, then populate it with readings every second. Then, when we hit a threshold level – we’ll start with 5 – we’ll average them together. We’ll clear out the list, and start it all over again.</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb64-1"><a href="temperature-and-accuracy.html#cb64-1"></a><span class="im">import</span> time</span>
+<span id="cb64-2"><a href="temperature-and-accuracy.html#cb64-2"></a><span class="im">from</span> adafruit_circuitplayground <span class="im">import</span> cp</span>
+<span id="cb64-3"><a href="temperature-and-accuracy.html#cb64-3"></a></span>
+<span id="cb64-4"><a href="temperature-and-accuracy.html#cb64-4"></a>temps <span class="op">=</span> [] <span class="co"># here&#39;s the empty list</span></span>
+<span id="cb64-5"><a href="temperature-and-accuracy.html#cb64-5"></a></span>
+<span id="cb64-6"><a href="temperature-and-accuracy.html#cb64-6"></a><span class="kw">def</span> convert(temp):</span>
+<span id="cb64-7"><a href="temperature-and-accuracy.html#cb64-7"></a>    fahren <span class="op">=</span> (temp <span class="op">*</span> <span class="fl">1.8</span>) <span class="op">+</span> <span class="dv">32</span> </span>
+<span id="cb64-8"><a href="temperature-and-accuracy.html#cb64-8"></a>    <span class="cf">return</span> fahren </span>
+<span id="cb64-9"><a href="temperature-and-accuracy.html#cb64-9"></a></span>
+<span id="cb64-10"><a href="temperature-and-accuracy.html#cb64-10"></a><span class="cf">while</span> <span class="va">True</span>: <span class="co"># do this forever</span></span>
+<span id="cb64-11"><a href="temperature-and-accuracy.html#cb64-11"></a>    <span class="cf">while</span> <span class="bu">len</span>(temps) <span class="op">!=</span> <span class="dv">5</span>: <span class="co"># while the number of readings in our list isn&#39;t 5 </span></span>
+<span id="cb64-12"><a href="temperature-and-accuracy.html#cb64-12"></a>        temps.append(convert(cp.temperature)) <span class="co"># append each temperature reading in Fahrenheit to the list</span></span>
+<span id="cb64-13"><a href="temperature-and-accuracy.html#cb64-13"></a>        time.sleep(<span class="dv">1</span>) <span class="co"># wait a second and repeat it again</span></span>
+<span id="cb64-14"><a href="temperature-and-accuracy.html#cb64-14"></a>    <span class="bu">print</span>(<span class="bu">sum</span>(temps)<span class="op">/</span><span class="dv">5</span>) <span class="co"># once the while loop breaks, we&#39;ll add them up and divide by 5 and print it</span></span>
+<span id="cb64-15"><a href="temperature-and-accuracy.html#cb64-15"></a>    temps.clear() <span class="co"># empty the list so the inner while loop can start again</span></span></code></pre></div>
+<p>That, by itself, smooths out the readings some.</p>
+<p>But what else can we do?</p>
+<p>Let’s eliminate the decimal points.</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb65-1"><a href="temperature-and-accuracy.html#cb65-1"></a><span class="im">import</span> time</span>
+<span id="cb65-2"><a href="temperature-and-accuracy.html#cb65-2"></a><span class="im">from</span> adafruit_circuitplayground <span class="im">import</span> cp</span>
+<span id="cb65-3"><a href="temperature-and-accuracy.html#cb65-3"></a></span>
+<span id="cb65-4"><a href="temperature-and-accuracy.html#cb65-4"></a>temps <span class="op">=</span> []</span>
+<span id="cb65-5"><a href="temperature-and-accuracy.html#cb65-5"></a></span>
+<span id="cb65-6"><a href="temperature-and-accuracy.html#cb65-6"></a><span class="kw">def</span> convert(temp):</span>
+<span id="cb65-7"><a href="temperature-and-accuracy.html#cb65-7"></a>    fahren <span class="op">=</span> (temp <span class="op">*</span> <span class="fl">1.8</span>) <span class="op">+</span> <span class="dv">32</span> </span>
+<span id="cb65-8"><a href="temperature-and-accuracy.html#cb65-8"></a>    <span class="cf">return</span> fahren </span>
+<span id="cb65-9"><a href="temperature-and-accuracy.html#cb65-9"></a></span>
+<span id="cb65-10"><a href="temperature-and-accuracy.html#cb65-10"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb65-11"><a href="temperature-and-accuracy.html#cb65-11"></a>    <span class="cf">while</span> <span class="bu">len</span>(temps) <span class="op">!=</span> <span class="dv">5</span>:</span>
+<span id="cb65-12"><a href="temperature-and-accuracy.html#cb65-12"></a>        temps.append(convert(cp.temperature))</span>
+<span id="cb65-13"><a href="temperature-and-accuracy.html#cb65-13"></a>        time.sleep(<span class="dv">1</span>)</span>
+<span id="cb65-14"><a href="temperature-and-accuracy.html#cb65-14"></a>    avg <span class="op">=</span> <span class="bu">sum</span>(temps)<span class="op">/</span><span class="dv">5</span></span>
+<span id="cb65-15"><a href="temperature-and-accuracy.html#cb65-15"></a>    <span class="bu">print</span>(<span class="st">&quot;%.0f&quot;</span> <span class="op">%</span> <span class="bu">round</span>(avg, <span class="dv">0</span>)) <span class="co"># the first formats the output to have zero digits, the second part rounds</span></span>
+<span id="cb65-16"><a href="temperature-and-accuracy.html#cb65-16"></a>    temps.clear()</span></code></pre></div>
+<p>Now my sensor says its between 78 and 79 in my office, which is much more like how we are accustomed to talking about temperature. But it is right?</p>
+</div>
+<div id="low-cost-validation-and-calibration" class="section level2">
+<h2><span class="header-section-number">5.2</span> Low cost validation and calibration</h2>
+<p>As I said earlier, I’m pretty Dad Energy about the temperature in my house. But a basement office is generally cooler than the rest of the house – so much so that I have the vents closed so as to not add more cold air in the room. So how is it telling me that my office is 79 when the thermostat upstairs is set at 76?</p>
+<p>One thing we can do is compare our sensor to an external sensor and compare. How different is our measurement from a better sensor.</p>
+<p>My house has an Ecobee Smart Thermostat system and I’ve got a movable remote temperature sensor. Since I trust it to cool my house, I’m going to trust it here to give a better reading on the temperature in my office.</p>
+<p>So what does the sensor say it is? 75.</p>
+<p>The sensor, averaging five readings and averaging them together before rounding them to the nearest whole degree – now reads 78.</p>
+<p>Simple solution? Knock three off our sensor reading to make it closer to the external sensor, which much more conforms with my understanding of what it actually feels like in my office.</p>
+<p>Your situation is going to be different, so you’ll need an external temperature gauge to validate your sensor output and adjust accordingly. But here’s my code.</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb66-1"><a href="temperature-and-accuracy.html#cb66-1"></a><span class="im">import</span> time</span>
+<span id="cb66-2"><a href="temperature-and-accuracy.html#cb66-2"></a><span class="im">from</span> adafruit_circuitplayground <span class="im">import</span> cp</span>
+<span id="cb66-3"><a href="temperature-and-accuracy.html#cb66-3"></a></span>
+<span id="cb66-4"><a href="temperature-and-accuracy.html#cb66-4"></a>temps <span class="op">=</span> []</span>
+<span id="cb66-5"><a href="temperature-and-accuracy.html#cb66-5"></a></span>
+<span id="cb66-6"><a href="temperature-and-accuracy.html#cb66-6"></a><span class="kw">def</span> convert(temp):</span>
+<span id="cb66-7"><a href="temperature-and-accuracy.html#cb66-7"></a>    fahren <span class="op">=</span> (temp <span class="op">*</span> <span class="fl">1.8</span>) <span class="op">+</span> <span class="dv">32</span> </span>
+<span id="cb66-8"><a href="temperature-and-accuracy.html#cb66-8"></a>    <span class="cf">return</span> fahren </span>
+<span id="cb66-9"><a href="temperature-and-accuracy.html#cb66-9"></a></span>
+<span id="cb66-10"><a href="temperature-and-accuracy.html#cb66-10"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb66-11"><a href="temperature-and-accuracy.html#cb66-11"></a>    <span class="cf">while</span> <span class="bu">len</span>(temps) <span class="op">!=</span> <span class="dv">5</span>:</span>
+<span id="cb66-12"><a href="temperature-and-accuracy.html#cb66-12"></a>        temps.append(convert(cp.temperature))</span>
+<span id="cb66-13"><a href="temperature-and-accuracy.html#cb66-13"></a>        time.sleep(<span class="dv">1</span>)</span>
+<span id="cb66-14"><a href="temperature-and-accuracy.html#cb66-14"></a>    avg <span class="op">=</span> (<span class="bu">sum</span>(temps)<span class="op">/</span><span class="dv">5</span>) <span class="op">-</span> <span class="dv">3</span> <span class="co"># the - 3 is the adjustment to be as close to reality as we can get.</span></span>
+<span id="cb66-15"><a href="temperature-and-accuracy.html#cb66-15"></a>    <span class="bu">print</span>(<span class="st">&quot;%.0f&quot;</span> <span class="op">%</span> <span class="bu">round</span>(avg, <span class="dv">0</span>)) </span>
+<span id="cb66-16"><a href="temperature-and-accuracy.html#cb66-16"></a>    temps.clear()</span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="light-sensing-and-what-numbers-mean.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sound.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["sensorjournalism.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

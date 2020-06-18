@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Python basics | Sensors for Journalism</title>
+  <meta name="description" content="An online resource for teaching Circuit Python and sensors for journalism." />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Python basics | Sensors for Journalism" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="An online resource for teaching Circuit Python and sensors for journalism." />
+  <meta name="github-repo" content="mattwaite/sensorjournalism" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Python basics | Sensors for Journalism" />
+  
+  <meta name="twitter:description" content="An online resource for teaching Circuit Python and sensors for journalism." />
+  
+
+<meta name="author" content="Matt Waite" />
+
+
+<meta name="date" content="2020-06-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="setup.html"/>
+<link rel="next" href="circuit-python.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Sensors for Journalism</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#what-to-buy"><i class="fa fa-check"></i><b>0.1</b> What to buy</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#why-circuit-python"><i class="fa fa-check"></i><b>0.2</b> Why circuit python?</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="setup.html"><a href="setup.html"><i class="fa fa-check"></i><b>1</b> Setup</a><ul>
+<li class="chapter" data-level="1.1" data-path="setup.html"><a href="setup.html#first-things-first"><i class="fa fa-check"></i><b>1.1</b> First things first</a></li>
+<li class="chapter" data-level="1.2" data-path="setup.html"><a href="setup.html#installing-circuit-python"><i class="fa fa-check"></i><b>1.2</b> Installing Circuit Python</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="python-basics.html"><a href="python-basics.html"><i class="fa fa-check"></i><b>2</b> Python basics</a><ul>
+<li class="chapter" data-level="2.1" data-path="python-basics.html"><a href="python-basics.html#variables"><i class="fa fa-check"></i><b>2.1</b> Variables</a></li>
+<li class="chapter" data-level="2.2" data-path="python-basics.html"><a href="python-basics.html#functions"><i class="fa fa-check"></i><b>2.2</b> Functions</a></li>
+<li class="chapter" data-level="2.3" data-path="python-basics.html"><a href="python-basics.html#loops"><i class="fa fa-check"></i><b>2.3</b> Loops</a></li>
+<li class="chapter" data-level="2.4" data-path="python-basics.html"><a href="python-basics.html#conditionals"><i class="fa fa-check"></i><b>2.4</b> Conditionals</a></li>
+<li class="chapter" data-level="2.5" data-path="python-basics.html"><a href="python-basics.html#error-trapping"><i class="fa fa-check"></i><b>2.5</b> Error trapping</a></li>
+<li class="chapter" data-level="2.6" data-path="python-basics.html"><a href="python-basics.html#libraries"><i class="fa fa-check"></i><b>2.6</b> Libraries</a></li>
+<li class="chapter" data-level="2.7" data-path="python-basics.html"><a href="python-basics.html#putting-it-all-together"><i class="fa fa-check"></i><b>2.7</b> Putting it all together</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="circuit-python.html"><a href="circuit-python.html"><i class="fa fa-check"></i><b>3</b> Circuit Python</a><ul>
+<li class="chapter" data-level="3.1" data-path="circuit-python.html"><a href="circuit-python.html#making-it-easier"><i class="fa fa-check"></i><b>3.1</b> Making it easier</a></li>
+<li class="chapter" data-level="3.2" data-path="circuit-python.html"><a href="circuit-python.html#more-fun-with-lights"><i class="fa fa-check"></i><b>3.2</b> More fun with lights</a></li>
+<li class="chapter" data-level="3.3" data-path="circuit-python.html"><a href="circuit-python.html#stretch-your-head"><i class="fa fa-check"></i><b>3.3</b> Stretch your head</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="light-sensing-and-what-numbers-mean.html"><a href="light-sensing-and-what-numbers-mean.html"><i class="fa fa-check"></i><b>4</b> Light sensing and what numbers mean</a><ul>
+<li class="chapter" data-level="4.1" data-path="light-sensing-and-what-numbers-mean.html"><a href="light-sensing-and-what-numbers-mean.html#not-to-feed-your-love-of-numbers-but"><i class="fa fa-check"></i><b>4.1</b> Not to feed your love of numbers, but …</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="temperature-and-accuracy.html"><a href="temperature-and-accuracy.html"><i class="fa fa-check"></i><b>5</b> Temperature and accuracy</a><ul>
+<li class="chapter" data-level="5.1" data-path="temperature-and-accuracy.html"><a href="temperature-and-accuracy.html#turning-down-the-noise"><i class="fa fa-check"></i><b>5.1</b> Turning down the noise</a></li>
+<li class="chapter" data-level="5.2" data-path="temperature-and-accuracy.html"><a href="temperature-and-accuracy.html#low-cost-validation-and-calibration"><i class="fa fa-check"></i><b>5.2</b> Low cost validation and calibration</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sound.html"><a href="sound.html"><i class="fa fa-check"></i><b>6</b> Sound</a></li>
+<li class="chapter" data-level="7" data-path="counting-with-buttons.html"><a href="counting-with-buttons.html"><i class="fa fa-check"></i><b>7</b> Counting with buttons</a></li>
+<li class="chapter" data-level="8" data-path="touch.html"><a href="touch.html"><i class="fa fa-check"></i><b>8</b> Touch</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Sensors for Journalism</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="python-basics" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Python basics</h1>
+<p>Python is a great language to learn if you’ve never seen code before, or if you have little experience with it. With a little bit of practice, you can get to reading someone else’s Python code and have a decent idea of what it is doing. There is a lot of code to borrow on the internet, and a fair number of times you can find what you need on a site or a message board.</p>
+<p>But the copy and pray method of development is not a good plan. Better to learn some basics and grow into some knowledge.</p>
+<p>The basics that you need to get started with Python – and by extension, Circuit Python – are:</p>
+<ol style="list-style-type: decimal">
+<li>Variables</li>
+<li>Functions</li>
+<li>Loops</li>
+<li>Conditionals</li>
+<li>Error trapping</li>
+<li>Libraries.</li>
+</ol>
+<p>It’s just six things, and we’ll go through each one here. As we go forward with making your board do things, we’ll highlight these concepts and how most of what we’re doing is just mixing them around in new and creative ways.</p>
+<p>In the last chapter, you installed mu-editor. Open mu-editor, then click on Mode and choose Python 3.</p>
+<p><img src="images/02image1.png" width="100%" /></p>
+<p>Then, just click the Run button.</p>
+<p><img src="images/02image2.png" width="100%" /></p>
+<p>That should pop up a pane at the bottom of your window like this:</p>
+<p><img src="images/02image3.png" width="100%" />
+In that pane, next to the <code>&gt;&gt;&gt;</code> you’ll be able to just type Python code and execute it. So let’s try some.</p>
+<div id="variables" class="section level2">
+<h2><span class="header-section-number">2.1</span> Variables</h2>
+<p>One of your first lessons is to not make things more complicated than you need. If you’ve been told that programming is hard, the truth is it can be, but it doesn’t have to be. And if you’ve been told that things are highly technical and you wouldn’t understand them, that’s a lie.</p>
+<p>Most of programming is very simple. The complexity comes in what we want to do and how those things mix together. Fortunately for us, most of what we want to do is simple, using simple concepts and easy to understand ideas.</p>
+<p>The variable is your first lesson in simple.</p>
+<p>A variable is just a thing that stores stuff. That’s it. It could be a number. Or some text. It could be a whole list of numbers, the entire text of War and Peace, or every reading from one of our sensors. It can be anything in our computers, or on someone else’s in some cases.</p>
+<p>Here’s where variables come into play.</p>
+<p>First, python can act like a calculator. We can just add two numbers together. Try this in your terminal.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="python-basics.html#cb1-1"></a><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## 4</code></pre>
+<p>Simple, right? We know the answer to this before we run it and, sure enough, Python gives us the right answer.</p>
+<p>But what if we want to store the result of that math to use later? We use a variable. And in Python, variables are created with an equal sign. Type this in your terminal and hit enter.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="python-basics.html#cb3-1"></a>number <span class="op">=</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span> </span></code></pre></div>
+<p>Uh oh. Seems like nothing happend, right? We typed something and we got nothing. Well, let this be another lesson – code does exactly what you tell it to do, not what you want it to do. In this case, we told it to store 2 + 2 into a variable called number. We didn’t say show us the number. We didn’t say anything else. Just store it.</p>
+<p>Want to see it? Type this an hit enter:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="python-basics.html#cb4-1"></a><span class="bu">print</span>(number)</span></code></pre></div>
+<pre><code>## 4</code></pre>
+<p>This does what you think it does. It prints out (to the screen) your variable. This is really a function, which we’ll discuss in a bit, but any time you want to see the thing you’re working with, just print it.</p>
+<p>In Python, how things like variables are formatted matters. Notice our numbers are just numbers: <code>2</code>. A number, without any quotation marks, is automatically formatted as a number. To automatically format something as text, you put it in quotes. Type this:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="python-basics.html#cb6-1"></a><span class="bu">print</span>(<span class="st">&quot;I am learning Python&quot;</span>)</span></code></pre></div>
+<pre><code>## I am learning Python</code></pre>
+<p>What happens if you don’t put it in quotes?</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="python-basics.html#cb8-1"></a><span class="bu">print</span>(I am learning Python)</span></code></pre></div>
+<p>You get an invalid syntax error. That’s because without the quotes, Python thinks I, am, learning and Python are variable names.</p>
+<p>Where this gets hard is numbers that aren’t numbers. We looked at something simple like <code>2+2</code>. But what happens when you have a zip code? Is a zip code a number? The answer is no – you would never do math with a zip code. So <code>2</code> is a number, <code>"2"</code> is text. What happens if you try to add text together?</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="python-basics.html#cb9-1"></a><span class="co">&quot;2&quot;</span> <span class="op">+</span> <span class="st">&quot;2&quot;</span> </span></code></pre></div>
+<pre><code>## &#39;22&#39;</code></pre>
+<p>If your reaction is … uh, what? … there’s something you need to know. In Python, <code>+</code> between two numbers means add, but <code>+</code> between two pieces of text means merge these two pieces of text together. So first – see that <code>"2"+"2"</code> equals <code>'22'</code>. But see the single quote marks around them? That means that <code>22</code> is really <code>"22"</code> or text, not a number.</p>
+</div>
+<div id="functions" class="section level2">
+<h2><span class="header-section-number">2.2</span> Functions</h2>
+<p>You’ve already used a function when you printed something out. The definition of a function is a piece of code that takes input and returns output. That’s it. Input. Output. Your <code>print()</code> function took in your variable and printed it out.</p>
+<p>The basic rule of thumb on functions is that if you are going to do it twice, you should make it a function. Let’s make a simple function to convert Celsius to Fahrenheit. To convert Celsius to Fahrenheit, you take your number, multiply it by 1.8 and then add 32. We can do this with a calculator easily. Some of you might be able to do it in your head. But what if you wanted to do it every 10 seconds? You want a function.</p>
+<p>To create a function, you define it with <code>def</code>, give it a name, and then name your input value.</p>
+<blockquote>
+<p><strong>An important note about Python:</strong> Python has what is called Meaningful White Space, meaning indentations matter. Code that is indented under code that isn’t indented is considered part of that code – a continuation of it. Then, when the code returns to not being indented again, the block of code is considered done. **In Python, indentations are made with four spaces, NOT tabs.</p>
+</blockquote>
+<p>Our function will create a variable called <code>fahren</code>, short for Fahrenheit, and then do the math. Our output will print the Fahrenheit value.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="python-basics.html#cb11-1"></a><span class="kw">def</span> convert(temp):</span>
+<span id="cb11-2"><a href="python-basics.html#cb11-2"></a>    fahren <span class="op">=</span> (temp <span class="op">*</span> <span class="fl">1.8</span>) <span class="op">+</span> <span class="dv">32</span> <span class="co"># note the four spaces</span></span>
+<span id="cb11-3"><a href="python-basics.html#cb11-3"></a>    <span class="bu">print</span>(fahren) <span class="co"># note the four spaces</span></span></code></pre></div>
+<p>Now, to use it, we can just call <code>convert</code> and give it a number. What is 28 Celsius in Fahrenheit?</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="python-basics.html#cb12-1"></a>convert(<span class="dv">28</span>)</span></code></pre></div>
+<pre><code>## 82.4</code></pre>
+<p>So 28 Celsius is 82.4 Fahrenheit. A nice warm day.</p>
+<p>Later, we’ll explore functions that other people have made for us when we talked about external libraries. The important things to remember – functions take input and provide output.</p>
+</div>
+<div id="loops" class="section level2">
+<h2><span class="header-section-number">2.3</span> Loops</h2>
+<p>Loops are the most powerful feature in programming. Just about every website and app that you use in a day are, at their core, a loop. Loops repeat a series of commands on a piece of data until either there is no more data to work with or, in some cases, forever. For example, let’s use Instagram. When you log into Instagram, a request goes to Facebook’s servers and gets the latest photos from your friends and the people you follow. Those photos are then put into a list. Your list might have a few new photos or it may have hundreds. We don’t know until we look. Then, on your phone, those photos appear, one after another, until the list runs out (when another request is fired off, bringing you more photos in an attempt to keep you there longer).</p>
+<p>That’s a loop.</p>
+<p>So first, let’s create a list of Celsius readings. Lists in Python are created with brackets:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="python-basics.html#cb14-1"></a>myreadings <span class="op">=</span> [<span class="fl">20.2</span>, <span class="fl">20.8</span>, <span class="fl">21.1</span>, <span class="fl">20.9</span>, <span class="fl">20.7</span>]</span></code></pre></div>
+<p>One of the most beginner friendly parts of Python is the simplicity of loops. When you see it, you can pretty much read it right away. There’s two kinds of loops. Let’s start with the <code>for</code> loop. In English, what Python’s <code>for</code> loop code is saying is this: For each instance of a thing in a list of things, do this. Here’s what that looks like in code:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="python-basics.html#cb15-1"></a><span class="cf">for</span> reading <span class="kw">in</span> myreadings:</span>
+<span id="cb15-2"><a href="python-basics.html#cb15-2"></a>    <span class="bu">print</span>(reading)</span></code></pre></div>
+<pre><code>## 20.2
+## 20.8
+## 21.1
+## 20.9
+## 20.7</code></pre>
+<p>The first parts of that code – reading – can be anything we want it to be.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="python-basics.html#cb17-1"></a><span class="cf">for</span> thereisnoplacelikenebraska <span class="kw">in</span> myreadings:</span>
+<span id="cb17-2"><a href="python-basics.html#cb17-2"></a>    <span class="bu">print</span>(thereisnoplacelikenebraska)</span></code></pre></div>
+<pre><code>## 20.2
+## 20.8
+## 21.1
+## 20.9
+## 20.7</code></pre>
+<p>The second part – allofmyreadings – is our list that we created. The second part must exist somewhere before we run the loop. A good coding habit to get into? Name things what they are. Don’t get cute. And don’t create things difficult to spell. Don’t name things single letters. Give it a real name. So the first example is good, the second example, while dear to my heart, is bad.</p>
+<p>So now we can combine our function and our loop.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="python-basics.html#cb19-1"></a><span class="cf">for</span> reading <span class="kw">in</span> myreadings:</span>
+<span id="cb19-2"><a href="python-basics.html#cb19-2"></a>    convert(reading)</span></code></pre></div>
+<pre><code>## 68.36
+## 69.44
+## 69.98
+## 69.62
+## 69.25999999999999</code></pre>
+</div>
+<div id="conditionals" class="section level2">
+<h2><span class="header-section-number">2.4</span> Conditionals</h2>
+<p>Conditionals are where you can make choices about things. If this is true, do this, otherwise, do that. This is particularly handy for classifying data as one thing or another based on a rule.</p>
+<p>So let’s pretend for a second that in our list of readings, we have a threshold. Let’s say that if the temperature rises to 21 C or more, we call that Warm. If it’s not 21 C, then it’s Not Warm.</p>
+<p>We can label those using conditionals and operators like &gt; and &lt;.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="python-basics.html#cb21-1"></a><span class="cf">for</span> reading <span class="kw">in</span> myreadings:</span>
+<span id="cb21-2"><a href="python-basics.html#cb21-2"></a>    <span class="cf">if</span> reading <span class="op">&gt;=</span> <span class="dv">21</span>:</span>
+<span id="cb21-3"><a href="python-basics.html#cb21-3"></a>        <span class="bu">print</span>(<span class="st">&quot;Warm&quot;</span>)</span>
+<span id="cb21-4"><a href="python-basics.html#cb21-4"></a>    <span class="cf">else</span>:</span>
+<span id="cb21-5"><a href="python-basics.html#cb21-5"></a>        <span class="bu">print</span>(<span class="st">&quot;Not Warm&quot;</span>)</span></code></pre></div>
+<pre><code>## Not Warm
+## Not Warm
+## Warm
+## Not Warm
+## Not Warm</code></pre>
+<p>The other kind of loop is the <code>while</code> loop. They are similar, in that they repeat commands, but they do it until a condition isn’t true. To read them, they say while this condition is true, do this thing until it’s not. If you don’t set a condition that could be false, the loop will run until you stop the code by hand.</p>
+<p>For computers, this can be trouble – an infinite loop can become a stuck process and consume resources you didn’t mean to consume. In sensors, it can be exactly what we want – take readings until I pull the plug. For purposes of this tutorial, I’m not going to go into much depth here – we’ll have a chance to do it much more when we get to coding the board. But here’s what they look like.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="python-basics.html#cb23-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb23-2"><a href="python-basics.html#cb23-2"></a>    <span class="bu">print</span>(<span class="st">&quot;Hello&quot;</span>)</span></code></pre></div>
+<p>And if I were to run that, it would print Hello over and over and over and over until I made it stop (which wouldn’t be long, because it would get annoying quickly).</p>
+<p><strong>Combining concepts</strong></p>
+<p>We can do this exactly the same way by adding variables into it. See the difference here?</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="python-basics.html#cb24-1"></a><span class="cf">for</span> reading <span class="kw">in</span> myreadings:</span>
+<span id="cb24-2"><a href="python-basics.html#cb24-2"></a>    <span class="cf">if</span> reading <span class="op">&gt;=</span> <span class="dv">21</span>:</span>
+<span id="cb24-3"><a href="python-basics.html#cb24-3"></a>        label <span class="op">=</span> <span class="st">&quot;Warm&quot;</span></span>
+<span id="cb24-4"><a href="python-basics.html#cb24-4"></a>    <span class="cf">else</span>:</span>
+<span id="cb24-5"><a href="python-basics.html#cb24-5"></a>        label <span class="op">=</span> <span class="st">&quot;Not Warm&quot;</span></span>
+<span id="cb24-6"><a href="python-basics.html#cb24-6"></a>    <span class="bu">print</span>(label)</span></code></pre></div>
+<pre><code>## Not Warm
+## Not Warm
+## Warm
+## Not Warm
+## Not Warm</code></pre>
+<p>Does the same thing, but uses a variable – <code>label</code> – to store the decision of the conditional. These are tiny steps toward creating complex code using very simple ideas.</p>
+</div>
+<div id="error-trapping" class="section level2">
+<h2><span class="header-section-number">2.5</span> Error trapping</h2>
+<p>One issue you will run into with sensors is when they don’t work. Things go wrong. Some sensors are quite “noisy”, which is a way of saying the readings can bounce all around. Sometimes they don’t do what you expect them to do. So we have to build code that can tolerate problems.</p>
+<p>We can do that with error trapping. Simply put, error trapping is like saying “Try this, and if it works, do this, else, do this.” And because Python prizes readability, you create error tolerance by using <code>try</code>.</p>
+<p>Let’s create a new list of readings from our thermometer, but this time, one of them is going to be an error.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="python-basics.html#cb26-1"></a>newreadings <span class="op">=</span> [<span class="fl">20.2</span>, <span class="fl">20.8</span>, <span class="st">&quot;ERROR&quot;</span>, <span class="fl">20.9</span>, <span class="fl">20.7</span>] </span></code></pre></div>
+<p>Python lists don’t really care what it is in them. You can store numbers, text, even other lists in a list and Python will store it dutifully. The problem is when you loop through that list and expect them to be all one thing. For example, let’s apply our Fahrenheit converter to each reading in our list.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="python-basics.html#cb27-1"></a><span class="cf">for</span> reading <span class="kw">in</span> newreadings:</span>
+<span id="cb27-2"><a href="python-basics.html#cb27-2"></a>    convert(reading)</span></code></pre></div>
+<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): TypeError: can&#39;t multiply sequence by non-int of type &#39;float&#39;
+## 
+## Detailed traceback: 
+##   File &quot;&lt;string&gt;&quot;, line 2, in &lt;module&gt;
+##   File &quot;&lt;string&gt;&quot;, line 2, in convert</code></pre>
+<p>Python error messages aren’t the easiest thing to read – they’re orders of magnitude better than many languages, but that’s a low bar to get over. But we can see there is a giant hint in the first word of the error message: TypeError. That leads me to believe there’s a data type problem, which we know is true.</p>
+<p>To trap that, we need to use <code>try</code> and <code>except</code>. Except, in this case, means what to do if it doesn’t work.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="python-basics.html#cb29-1"></a><span class="cf">for</span> reading <span class="kw">in</span> newreadings:</span>
+<span id="cb29-2"><a href="python-basics.html#cb29-2"></a>    <span class="cf">try</span>: <span class="co"># try doing what we want done</span></span>
+<span id="cb29-3"><a href="python-basics.html#cb29-3"></a>        convert(reading)</span>
+<span id="cb29-4"><a href="python-basics.html#cb29-4"></a>    <span class="cf">except</span>: <span class="co"># here&#39;s what to do if it breaks</span></span>
+<span id="cb29-5"><a href="python-basics.html#cb29-5"></a>        <span class="cf">continue</span> <span class="co"># this means just skip it, move along</span></span></code></pre></div>
+<pre><code>## 68.36
+## 69.44
+## 69.62
+## 69.25999999999999</code></pre>
+<p>Now it works, but our choice of using <code>continue</code> means we get four readings, not five. Sometimes, that’s an acceptable outcome. If it didn’t work, we don’t want it. We can do other things.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="python-basics.html#cb31-1"></a><span class="cf">for</span> reading <span class="kw">in</span> newreadings:</span>
+<span id="cb31-2"><a href="python-basics.html#cb31-2"></a>    <span class="cf">try</span>: <span class="co"># try doing what we want done</span></span>
+<span id="cb31-3"><a href="python-basics.html#cb31-3"></a>        convert(reading)</span>
+<span id="cb31-4"><a href="python-basics.html#cb31-4"></a>    <span class="cf">except</span>: <span class="co"># here&#39;s what to do if it breaks</span></span>
+<span id="cb31-5"><a href="python-basics.html#cb31-5"></a>        <span class="bu">print</span>(<span class="st">&quot;Ooops&quot;</span>) </span></code></pre></div>
+<pre><code>## 68.36
+## 69.44
+## Ooops
+## 69.62
+## 69.25999999999999</code></pre>
+<p>It’s generally a bad idea to mix data types, so maybe “Ooops” isn’t a good choice. Some data encodes missing data as an impossible number, something like 99999. If it’s 99999 degrees F, we’ve got much bigger problems than our sensor not working correctly for a reading.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="python-basics.html#cb33-1"></a><span class="cf">for</span> reading <span class="kw">in</span> newreadings:</span>
+<span id="cb33-2"><a href="python-basics.html#cb33-2"></a>    <span class="cf">try</span>: <span class="co"># try doing what we want done</span></span>
+<span id="cb33-3"><a href="python-basics.html#cb33-3"></a>        convert(reading)</span>
+<span id="cb33-4"><a href="python-basics.html#cb33-4"></a>    <span class="cf">except</span>: <span class="co"># here&#39;s what to do if it breaks</span></span>
+<span id="cb33-5"><a href="python-basics.html#cb33-5"></a>        <span class="bu">print</span>(<span class="dv">99999</span>) </span></code></pre></div>
+<pre><code>## 68.36
+## 69.44
+## 99999
+## 69.62
+## 69.25999999999999</code></pre>
+<p>Then we know, in our data analysis, to filter those out or annotate those readings.</p>
+<p>The point being, you have choices on how you handle errors. You need to think through what your application requires. Do you need to know what happens on each reading, regardless if it works or not? Or is a missing reading here and there not important? Think it through before you start coding.</p>
+</div>
+<div id="libraries" class="section level2">
+<h2><span class="header-section-number">2.6</span> Libraries</h2>
+<p>The strength of any programming language is the quality of available external libraries. Python has many, many contributed libraries to do a mind boggling number of tasks. Many of them are incorporated into something called the standard library – a common set of high quality libraries that aren’t part of the base language but are so good that everyone gets them. Circuit Python has theirs, and we’ll get into those soon, but using libraries is an important concept to understand.</p>
+<p>Good news: It’s pretty simple.</p>
+<p>There’s two ways to use an external library – you can import it whole, or you can import what you need.</p>
+<p>Let’s say we need an average temperature of our readings for our error problems. Instead of a blank or a fake number, we’re going to replace that error with the average of all readings. In a controlled environment, where the values aren’t going to change wildly unless there’s a problem, this might be a good solution to a touchy sensor.</p>
+<p>So we could do this with code we know. We can add up all the values in the list, then divide them by the number of items in the list. But we aren’t the first people to need this. This is a common thing, so any time we run into something common like this, your first thought should be “I wonder if there’s a library that does this.”</p>
+<p>Python has a library called <code>statistics</code> that has a <code>mean</code> function in it.</p>
+<p>The import it whole way involves importing the library, then using dot notation to get to it. Think of dot notation like a line that connects a library to a function within it. It looks like this:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="python-basics.html#cb35-1"></a><span class="im">import</span> statistics</span>
+<span id="cb35-2"><a href="python-basics.html#cb35-2"></a></span>
+<span id="cb35-3"><a href="python-basics.html#cb35-3"></a>statistics.mean(myreadings)</span></code></pre></div>
+<pre><code>## 20.74</code></pre>
+<p>So the average temperature in my list of readings is 20.74.</p>
+<p>Purists will tell you that importing the whole library for one function is inefficient and bad form. So we can import the one function and use it like this:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="python-basics.html#cb37-1"></a><span class="im">from</span> statistics <span class="im">import</span> mean</span>
+<span id="cb37-2"><a href="python-basics.html#cb37-2"></a></span>
+<span id="cb37-3"><a href="python-basics.html#cb37-3"></a>mean(myreadings)</span></code></pre></div>
+<pre><code>## 20.74</code></pre>
+<p>Two different ways, same result.</p>
+<p>We’ll make use of external libraries when we start with Circuit Python. The important lesson here is that you can import a library and use functions within it.</p>
+</div>
+<div id="putting-it-all-together" class="section level2">
+<h2><span class="header-section-number">2.7</span> Putting it all together</h2>
+<p>Let’s combine some ideas. See if you can do this yourself.</p>
+<ol style="list-style-type: decimal">
+<li>We’re going to loop through the list of temperature readings below.</li>
+<li>We’re going to convert them from Celsius to Fahrenheit using our function.</li>
+<li>If that doesn’t work, we’ll substitute the average temperature using try/except.</li>
+<li>Then, we’ll print it out to the screen.</li>
+</ol>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="python-basics.html#cb39-1"></a>testreadings <span class="op">=</span> [<span class="fl">20.3</span>, <span class="fl">20.6</span>, <span class="fl">20.1</span>, <span class="fl">21.1</span>, <span class="dv">21</span>, <span class="st">&quot;ERROR&quot;</span>, <span class="fl">20.9</span>, <span class="st">&quot;ERROR&quot;</span>, <span class="fl">21.2</span>]</span></code></pre></div>
+<p>First things first, what happens if we try to get an average of that list?</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="python-basics.html#cb40-1"></a>mean(testreadings)</span></code></pre></div>
+<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): TypeError: don&#39;t know how to coerce float and str
+## 
+## Detailed traceback: 
+##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;
+##   File &quot;/Users/mwaite3/Library/r-miniconda/envs/r-reticulate/lib/python3.6/statistics.py&quot;, line 312, in mean
+##     T, total, count = _sum(data)
+##   File &quot;/Users/mwaite3/Library/r-miniconda/envs/r-reticulate/lib/python3.6/statistics.py&quot;, line 147, in _sum
+##     T = _coerce(T, typ)  # or raise TypeError
+##   File &quot;/Users/mwaite3/Library/r-miniconda/envs/r-reticulate/lib/python3.6/statistics.py&quot;, line 198, in _coerce
+##     raise TypeError(msg % (T.__name__, S.__name__))</code></pre>
+<p>Uh oh. TypeError again.</p>
+<p>So we need to remove non-numbers from our list.</p>
+<p>There’s a lot of ways to do this, but one way is to use a loop and a try/except. We’ll create a new list, called <code>cleanreadings</code> and we’ll use a new bit of code – <code>append</code> – to add things to that new list. Then, we loop.</p>
+<p>In the try/except, we’ll try to do something that will only work with numbers – like convert it to a floating point number or a number with a decimal point. If that succeeds, then add the number to the list. Otherwise, move along.</p>
+<p>Then we can calculate the mean and save it as a variable.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="python-basics.html#cb42-1"></a></span>
+<span id="cb42-2"><a href="python-basics.html#cb42-2"></a>cleanreadings <span class="op">=</span> []</span>
+<span id="cb42-3"><a href="python-basics.html#cb42-3"></a></span>
+<span id="cb42-4"><a href="python-basics.html#cb42-4"></a><span class="cf">for</span> reading <span class="kw">in</span> testreadings:</span>
+<span id="cb42-5"><a href="python-basics.html#cb42-5"></a>    <span class="cf">try</span>:</span>
+<span id="cb42-6"><a href="python-basics.html#cb42-6"></a>        <span class="bu">float</span>(reading)</span>
+<span id="cb42-7"><a href="python-basics.html#cb42-7"></a>        cleanreadings.append(reading)</span>
+<span id="cb42-8"><a href="python-basics.html#cb42-8"></a>    <span class="cf">except</span>:</span>
+<span id="cb42-9"><a href="python-basics.html#cb42-9"></a>        <span class="cf">continue</span></span>
+<span id="cb42-10"><a href="python-basics.html#cb42-10"></a>        </span></code></pre></div>
+<pre><code>## 20.3
+## 20.6
+## 20.1
+## 21.1
+## 21.0
+## 20.9
+## 21.2</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="python-basics.html#cb44-1"></a>avgreading <span class="op">=</span> mean(cleanreadings)</span></code></pre></div>
+<p>Now we can do our conversion.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="python-basics.html#cb45-1"></a></span>
+<span id="cb45-2"><a href="python-basics.html#cb45-2"></a><span class="cf">for</span> reading <span class="kw">in</span> testreadings:</span>
+<span id="cb45-3"><a href="python-basics.html#cb45-3"></a>    <span class="cf">try</span>:</span>
+<span id="cb45-4"><a href="python-basics.html#cb45-4"></a>        convert(reading)</span>
+<span id="cb45-5"><a href="python-basics.html#cb45-5"></a>    <span class="cf">except</span>:</span>
+<span id="cb45-6"><a href="python-basics.html#cb45-6"></a>        convert(avgreading)</span></code></pre></div>
+<pre><code>## 68.53999999999999
+## 69.08000000000001
+## 68.18
+## 69.98
+## 69.80000000000001
+## 69.33714285714285
+## 69.62
+## 69.33714285714285
+## 70.16</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="setup.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="circuit-python.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["sensorjournalism.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
